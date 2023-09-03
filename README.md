@@ -5,6 +5,7 @@ Manuscript:
 Malay K. Sannigrahi* 1; Austin C. Cao* 1; Pavithra Rajagopalan1; Lova Sun2, Robert M. Brody1; Lovely Raghav1; Phyllis A. Gimotty3; and Devraj Basu1,4
 
 *authors contributed equally
+
 1 Department of Otorhinolaryngology-Head and Neck Surgery, University of Pennsylvania, Philadelphia, PA
 2 Department of Medicine, University of Pennsylvania, Philadelphia, PA
 3 Department of Biostatistics, Epidemiology and Informatics, University of Pennsylvania, Philadelphia, PA
