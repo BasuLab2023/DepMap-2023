@@ -1,16 +1,14 @@
-# DepMap-2023
-
 Manuscript: 
 
-A novel pipeline for prioritizing cancer type-specific therapeutic vulnerabilities using DepMap identifies PAK2 as a target in head and neck squamous cell carcinomas
+# A novel pipeline for prioritizing cancer type-specific therapeutic vulnerabilities using DepMap identifies PAK2 as a target in head and neck squamous cell carcinomas
 
-Malay K. Sannigrahi# 1; Austin C. Cao# 1; Pavithra Rajagopalan1; Lova Sun2, Robert M. Brody1; Lovely Raghav1; Phyllis A. Gimotty3; and Devraj Basu1,4
+Malay K. Sannigrahi* 1; Austin C. Cao* 1; Pavithra Rajagopalan1; Lova Sun2, Robert M. Brody1; Lovely Raghav1; Phyllis A. Gimotty3; and Devraj Basu1,4
 
-# authors contributed equally
-1Department of Otorhinolaryngology-Head and Neck Surgery, University of Pennsylvania, Philadelphia, PA
-2Department of Medicine, University of Pennsylvania, Philadelphia, PA
-3Department of Biostatistics, Epidemiology and Informatics, University of Pennsylvania, Philadelphia, PA
-4Ellen and Ronald Caplan Cancer Center, The Wistar Institute, Philadelphia, PA
+*authors contributed equally
+1 Department of Otorhinolaryngology-Head and Neck Surgery, University of Pennsylvania, Philadelphia, PA
+2 Department of Medicine, University of Pennsylvania, Philadelphia, PA
+3 Department of Biostatistics, Epidemiology and Informatics, University of Pennsylvania, Philadelphia, PA
+4 Ellen and Ronald Caplan Cancer Center, The Wistar Institute, Philadelphia, PA
 
 Running Title: DepMap reveals PAK2 is a target in HPV(-) HNSCC
 
