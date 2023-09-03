@@ -1,3 +1,19 @@
 # DepMap-2023
-Prioritized Gene List
-Gene dependency data processed by the Chronos algorithm was extracted initially from the 22Q1 public data release from the DepMap at the Broad Institute [1, 2] for all HPV(-) HNSCC (n=63) and esophageal squamous cell carcinoma (ESCC) (n=24) cell lines in this resource. A re-analysis prior to publication was performed with the 23Q2 release. The Drug Gene Interaction Database (DGIdb) was used to filter for the genes predicted to encode for druggable proteins. The DAVID Gene Functional Classification Tool was used to classify targetable dependencies based on function. The Open Targets Platform was used to identify approved or investigational drugs known to target druggable proteins and describe their application in clinical trials to date along with their FDA approval status. Mutation and copy number data from whole exome sequencing along with RNAseq-based gene expression data (TPM+1) were extracted from the cancer cell line encyclopedia (CCLE) via the DepMap data portal. Drug response information was sourced from the GDSC2 dataset of the Genomics of Drug Sensitivity in Cancer database (GDSC, Release 8.3). Additional drug response information and RNAi screen results were obtained from DepMap PRISM Repurposing Public 23Q2 dataset and Gene Effect RNAi (DEMETER2) data, respectively, via the DepMap data portal. The R code used to prioritize dependencies and visualize them as a dot plot showing the number of cell lines with each dependency vs. median gene effect score in those cell lines is available in the Github repository 
+
+Manuscript: 
+
+A novel pipeline for prioritizing cancer type-specific therapeutic vulnerabilities using DepMap identifies PAK2 as a target in head and neck squamous cell carcinomas
+
+Malay K. Sannigrahi# 1; Austin C. Cao# 1; Pavithra Rajagopalan1; Lova Sun2, Robert M. Brody1; Lovely Raghav1; Phyllis A. Gimotty3; and Devraj Basu1,4
+
+# authors contributed equally
+1Department of Otorhinolaryngology-Head and Neck Surgery, University of Pennsylvania, Philadelphia, PA
+2Department of Medicine, University of Pennsylvania, Philadelphia, PA
+3Department of Biostatistics, Epidemiology and Informatics, University of Pennsylvania, Philadelphia, PA
+4Ellen and Ronald Caplan Cancer Center, The Wistar Institute, Philadelphia, PA
+
+Running Title: DepMap reveals PAK2 is a target in HPV(-) HNSCC
+
+Methodology Cell line data analysis
+
+Gene dependency data processed by the Chronos algorithm was extracted initially from the 22Q1 public data release from the DepMap at the Broad Institute for all HPV(-) HNSCC (n=63) and esophageal squamous cell carcinoma (ESCC) (n=24) cell lines in this resource. A re-analysis prior to publication was performed with the 23Q2 release. The Drug Gene Interaction Database (DGIdb) was used to filter for the genes predicted to encode for druggable proteins. The DAVID Gene Functional Classification Tool was used to classify targetable dependencies based on function. The Open Targets Platform was used to identify approved or investigational drugs known to target druggable proteins and describe their application in clinical trials to date along with their FDA approval status. Mutation and copy number data from whole exome sequencing along with RNAseq-based gene expression data (TPM+1) were extracted from the cancer cell line encyclopedia (CCLE) via the DepMap data portal. Drug response information was sourced from the GDSC2 dataset of the Genomics of Drug Sensitivity in Cancer database (GDSC, Release 8.3). Additional drug response information and RNAi screen results were obtained from DepMap PRISM Repurposing Public 23Q2 dataset and Gene Effect RNAi (DEMETER2) data, respectively, via the DepMap data portal. The R code used to prioritize dependencies and visualize them as a dot plot showing the number of cell lines with each dependency vs. median gene effect score in those cell lines is available in the Github repository 
