@@ -409,7 +409,7 @@ table(RDplot$common_category)
 RDplot <- RDplot %>% mutate(category = case_when(common == 'True' & core == 'True' ~ 'Common essential and core fitness  (n = 143)',
                                                  common == 'True'  ~ 'Common essential gene only (n = 98)',
                                                  core == 'True'  ~ 'Core fitness gene only (n = 59)',
-                                                 list == 'False' & core == 'False' ~ 'Essential in < 10% cell lines (n = 581)',
+                                                 list == 'False' & core == 'False' ~ 'Essential in < 9% cell lines (n = 581)',
                                                  list == 'True' ~ 'Essential in > 10% cell lines (n = 139)'))
 table(RDplot$category)
 
@@ -423,11 +423,11 @@ RDplot <- RDplot %>% mutate(core_binary = case_when(core == 'True' ~ 'Core fitne
 ))
 table(RDplot$core_binary)
 
-RDplot <- RDplot %>% mutate(rare_binary = case_when(list == 'False' & core == 'False' ~ 'Essential in < 10% cell lines (n = 581)',
-                                                    list == 'True' ~ 'Essential in > 10% cell lines (n = 139)'
+RDplot <- RDplot %>% mutate(rare_binary = case_when(list == 'False' & core == 'False' ~ 'Essential in < 9% cell lines (n = 581)',
+                                                    list == 'True' ~ 'Essential in >= 9% cell lines (n = 139)'
 ))
 table(RDplot$rare_binary)
-RDplot$rare_binary <- factor(RDplot$rare_binary, levels=c('Essential in < 10% cell lines (n = 581)','Essential in > 10% cell lines (n = 139)'))
+RDplot$rare_binary <- factor(RDplot$rare_binary, levels=c('Essential in < 9% cell lines (n = 581)','Essential in > 9% cell lines (n = 139)'))
 
 #RDplot <- RDplot %>% mutate(Cancer = case_when(HNSCC == 'True' ~ 'Clinical inhibitor in HNSCC', cancer == 'True' ~ 'Clinical inhibitor in cancer'))
 
@@ -523,7 +523,7 @@ KWpair.category_3 <- KWpair.category_3 %>% add_xy_position(x = "category_3")
 RDplot_druggable$median_gene_effect <- -1*(RDplot_druggable$median_gene_effect)
 
 ######FIGURE 1C#####
-RDplot_druggable$category_3 <- factor(RDplot_druggable$category_3, levels = c('Common essential or core fitness (n = 303)', 'Essential in < 10% cell lines (n = 704)', 'Prioritized druggable targets (n = 143)'))
+RDplot_druggable$category_3 <- factor(RDplot_druggable$category_3, levels = c('Common essential or core fitness (n = 303)', 'Essential in < 9% cell lines (n = 704)', 'Prioritized druggable targets (n = 143)'))
 fig2c <- ggboxplot(RDplot_druggable, x = "category_3", y = "median_gene_effect", outlier.shape = NA) +
   stat_pvalue_manual(KWpair.category_3, hide.ns = FALSE, y.position = -3, tip.length = - 0.03, step.increase = 0.1) +
   geom_jitter(width = 0.20, shape=19, size=1.7, alpha=0.5, aes(colour=category_3)) + 
@@ -539,11 +539,11 @@ RDplot2 <- merge(HPV_neg_druggable_combined_mark_nice_RD, Effect_dependent_only2
 RDplot2$relative_dependency = RDplot2$relative_dependency * 100
 RDplot2$core <- RDplot2$genes %in% unlist(core_fitness$genes) %>% as.character() %>% str_to_title()
 RDplot2$list <- RDplot2$genes %in% unlist(HPV_neg_druggable_combined_mark_nice_RD$genes) %>% as.character() %>% str_to_title()
-RDplot2 <- RDplot2 %>% mutate(Category = case_when(list == 'True' ~ 'Genes in > 10% cell lines and not core fitness',
+RDplot2 <- RDplot2 %>% mutate(Category = case_when(list == 'True' ~ 'Genes in > 9% cell lines and not core fitness',
                                                    core == 'True' ~ 'Core fitness genes',
-                                                   TRUE ~ 'Genes in < 10% cell lines'))
+                                                   TRUE ~ 'Genes in < 9% cell lines'))
 RDplot2 <- RDplot2 %>% mutate(Regression = case_when(relative_dependency > 99 ~ 'Genes in 100% cell lines',
-                                                     TRUE ~ 'Genes in 10-99% cell lines'))
+                                                     TRUE ~ 'Genes in 9-99% cell lines'))
 
 #filter to new gene list
 RDplot2 <- RDplot2 %>% filter(relative_dependency > 3 & core == 'False') #& !(relative_dependency > 90 & median_gene_effect > 1.005))
