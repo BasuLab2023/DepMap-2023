@@ -410,7 +410,7 @@ RDplot <- RDplot %>% mutate(category = case_when(common == 'True' & core == 'Tru
                                                  common == 'True'  ~ 'Common essential gene only (n = 98)',
                                                  core == 'True'  ~ 'Core fitness gene only (n = 59)',
                                                  list == 'False' & core == 'False' ~ 'Essential in < 9% cell lines (n = 581)',
-                                                 list == 'True' ~ 'Essential in > 10% cell lines (n = 139)'))
+                                                 list == 'True' ~ 'Essential in >= 9% cell lines (n = 139)'))
 table(RDplot$category)
 
 RDplot <- RDplot %>% mutate(category_3 = case_when(common == 'True' | core == 'True' ~ 'Common essential or core fitness (n = 303)',
@@ -465,7 +465,7 @@ RDplot_common_or_core_true %>% dplyr::summarise(median = median(median_gene_effe
 
 RDplot$median_gene_effect <- -1*(RDplot$median_gene_effect)
 
-text <- paste("Essential in <10% cell lines")
+text <- paste("Essential in <9% cell lines")
 fig2a_pre <- ggplot(RDplot, aes(x=relative_dependency, y=median_gene_effect)) + 
   scale_y_reverse() +
   annotate("rect",xmin=-Inf,xmax=9,ymin=-Inf,ymax=Inf,alpha=.1,color="gold",fill="gold") +
@@ -486,7 +486,7 @@ cor.test(x=RDplot$relative_dependency, y=RDplot$median_gene_effect, method = 'sp
 #Highlight strong/rare depedencies#
 RDplot <- RDplot %>% filter(core == 'False' & common == 'False')
 table(RDplot$rare_binary)
-strong_rare_RDplot <- subset(RDplot, median_gene_effect > 0.57 & rare_binary == 'Essential in 3-10% cell lines (n = 155)')
+strong_rare_RDplot <- subset(RDplot, median_gene_effect > 0.57 & rare_binary == 'Essential in 3-9% cell lines (n = 155)')
 
 #how many oncogenes in lower?
 RDplot_onco <- setDT(RDplot)[genes %chin% oncokb$Gene]
