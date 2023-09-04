@@ -319,7 +319,7 @@ CRISPR_common_essentials <- as.data.frame(lapply(CRISPR_common_essentials,functi
 HPV_neg_no_common <- setDT(HPV_neg_druggable_combined_mark_nice)[!(genes %chin% CRISPR_common_essentials$gene)]
 HPV_neg_no_core_common <- setDT(HPV_neg_no_core)[!(genes %chin% CRISPR_common_essentials$gene)]
 
-#Dependency data: filter relative dependency > 10% in cohort
+#Dependency data: filter relative dependency > 9% in cohort
 hist(HPV_neg_no_core_common$dependent_cell_lines, breaks=76,main="Number of cell lines with gene dependency")
 favstats(HPV_neg_no_core_common$dependent_cell_lines)
 
@@ -461,7 +461,7 @@ RDplot_core_true %>% dplyr::summarise(median = median(median_gene_effect, na.rm=
 RDplot_common_true %>% dplyr::summarise(median = median(median_gene_effect, na.rm=TRUE), iqr = quantile(median_gene_effect, c(0.25, 0.5, 0.75), na.rm=TRUE))
 RDplot_common_or_core_true %>% dplyr::summarise(median = median(median_gene_effect, na.rm=TRUE), iqr = quantile(median_gene_effect, c(0.25, 0.5, 0.75), na.rm=TRUE))
 
-#####GENERATE FIGURE 1B
+#####GENERATE FIGURE 1B#######
 
 RDplot$median_gene_effect <- -1*(RDplot$median_gene_effect)
 
@@ -480,10 +480,10 @@ print(fig2a_pre)
 
 write.csv(RDplot, file = "RDplot.csv", row.names = TRUE)
 
-#calculate spearmans for 2A
+#calculate spearmans
 cor.test(x=RDplot$relative_dependency, y=RDplot$median_gene_effect, method = 'spearman')
 
-#Figure 2B: highlight strong/rare
+#Highlight strong/rare depedencies#
 RDplot <- RDplot %>% filter(core == 'False' & common == 'False')
 table(RDplot$rare_binary)
 strong_rare_RDplot <- subset(RDplot, median_gene_effect > 0.57 & rare_binary == 'Essential in 3-10% cell lines (n = 155)')
@@ -522,7 +522,7 @@ formattable(KWpair.category_3, align ="c")
 KWpair.category_3 <- KWpair.category_3 %>% add_xy_position(x = "category_3")
 RDplot_druggable$median_gene_effect <- -1*(RDplot_druggable$median_gene_effect)
 
-#FIGURE 1C FINAL
+######FIGURE 1C#####
 RDplot_druggable$category_3 <- factor(RDplot_druggable$category_3, levels = c('Common essential or core fitness (n = 303)', 'Essential in < 10% cell lines (n = 704)', 'Prioritized druggable targets (n = 143)'))
 fig2c <- ggboxplot(RDplot_druggable, x = "category_3", y = "median_gene_effect", outlier.shape = NA) +
   stat_pvalue_manual(KWpair.category_3, hide.ns = FALSE, y.position = -3, tip.length = - 0.03, step.increase = 0.1) +
@@ -763,7 +763,7 @@ write.csv(core_onco_list, file = "core_onco_list.csv", row.names = TRUE)
 
 ####OUTPUT IN THE MANUSCRIPT###
 
-###FINAL TABLE OUTPUT as in SUPPLEMENTARY TABLE 1###
+### FINAL TABLE OUTPUT as in SUPPLEMENTARY TABLE 1 ###
 
 formattable(gene_list, align ="c")
 
