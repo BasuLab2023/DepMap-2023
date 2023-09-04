@@ -43,7 +43,7 @@ customGreen = "#71CA97"
 customRed = "#ff7f7f"
 
 #download files
-setwd("C:/Users/malay/Documents/Austin Data/Files")##Use the directory where the files are downloaded
+setwd("C:/Users/.................")##Use the directory where the files are downloaded
 gene_dependency_q2 <- read.csv("CRISPR_gene_dependency_23q2.csv", header = TRUE)
 gene_effect_q2 <- read.csv("CRISPR_gene_effect_23q2.csv", header = TRUE)
 gene_list_q2 <- read.csv("gene_list_23q2.csv", header = TRUE, check.names=FALSE)
